@@ -9,3 +9,6 @@ The prototype uses or contains:
 - REM font sizing for page scalability and accessibility
 - Controlled animations and other effects for interest and learnability
 - Media queries for layout changes as the screen narrows
+
+### Deployment
+View the site at https://markacody.github.io/picture-app-ui/ 
