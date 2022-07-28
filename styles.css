@@ -1,30 +1,36 @@
-/* CSS RESET */
+/* PICTURE PREPPER STYLES */
+
+/* -------CSS RESET------ */
+/* Select all page elements and strip margin and padding. Because browsers treat this differently, achieve consistency by resetting to zero on all browsers. */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Calibrate the font-size to use REM units as intuitively as pixels. The default 100% = 1 rem = 16 px. So the reset 62.5% = 1 rem = 10 px in most browsers.  */
 html {
   font-size: 62.5%;
 }
+
 button {
-  /* Initial is prior browser has styles */
+  /* Initial if prior browser has styles */
   border: initial;
   background-color: initial;
   color: inherit;
   font: inherit;
   outline: none;
-  /* Accessibility outline is defined in focus state */
+  /* For visual perceptibility/accessibility, an outline is defined in focus state */
 }
 
-/* COLOR PALETTE 
+/* ------COLOR PALETTE------ 
 logo and brand    - cornflowerblue
 function sidebar  - #10171a
 graphics panel    - #2b363c
 content main body - #edf1f3 
 */
 
-/* ANIMATION KEYFRAMES  */
+/* ------ANIMATION KEYFRAMES------  */
 @keyframes fade-in-from-top {
   0% {
     opacity: 0;
@@ -78,8 +84,7 @@ content main body - #edf1f3
   }
 }
 
-/* ------------------------------- */
-/* GLOBAL STYLES */
+/* ------GLOBAL STYLES------ */
 body {
   background-color: #202020;
   font-family: "Lato", "Helvetica", arial, sans-serif;
@@ -88,37 +93,42 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
 .app__container {
-  display: flex;
-  flex-direction: row;
-  height: 90vh;
+    /* Flex parent of sidebar, panel, and main */
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
 }
 
-/* ------------------------------- */
-/* HEADER */
+/* ------HEADER------ */
 .header {
   background-image: linear-gradient(to right, #111, black);
   height: 5.5rem;
   font-size: 1.6rem;
-  /* Make flex container - parent of buttons */
+  /* Flex parent of buttons */
   display: flex;
   align-items: center;
 }
+
 .logo {
   align-self: center;
   animation: fade-in-from-top 0.5s;
 }
+
 .logo-wrapper {
   color: cornflowerblue;
   font-size: 2.4rem;
   font-weight: bold;
   margin: 0 0.5em 0 0.5em;
 }
-/* Buttons */
+
+/* ------Buttons------ */
 .dd-toggle:nth-of-type(4) {
   /* Spreads buttons from 4th forward */
   margin-left: auto;
 }
+
 .dd-toggle {
   color: rgba(255, 255, 255, 0.8);
   padding: 0.5em;
@@ -126,6 +136,7 @@ body {
   transition: all 0.4s;
   animation: fade-in-from-top 0.5s;
 }
+
 /* Hover and focus */
 .dd-toggle:hover,
 .dd-toggle:focus {
@@ -134,30 +145,33 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 0.5em;
 }
+
 .dd-toggle:last-child {
   /* Align photo and text in parent button */
   display: flex;
   align-items: center;
 }
+
 .dd-toggle__icon {
   padding-left: 0.5em;
 }
+
 .dd-toggle__img {
   height: 30px;
   width: 30px;
   /* Use object-fit to cover (crop) excess */
   object-fit: cover;
 }
+
 .dd-toggle__text {
   padding-left: 0.5em;
 }
 
-/* ------------------------- */
-/* CONTENT */
+/* ------CONTENT------ */
 /* 
 FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar and panel have fixed sizes; main has all remaining space. 
 */
-/* Sidebar------------------ */
+/* ------Sidebar------ */
 .sidebar {
   background-color: #10171a;
   width: 75px;
@@ -165,21 +179,26 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   flex-direction: column;
   align-items: center;
 }
+
 .menu {
+    /* Align buttons vertically */
   display: flex;
   flex-direction: column;
   font-size: 1.6rem;
 }
+
 .menu__button {
-  padding: 1em;
+  padding: 1rem;
   color: rgba(255, 255, 255, 0.4);
   align-items: center;
+  /* Flex parent of icon and label */
   display: flex;
   flex-direction: column;
   width: 100%;
   transition: all 0.4s;
   animation: fade-in-from-left 0.5s;
 }
+
 .menu__button:hover,
 .menu__button:focus {
   background-color: #2b363c;
@@ -187,11 +206,13 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   border-left: solid 3px cornflowerblue;
   cursor: pointer;
 }
+
 .menu__button--active {
   background-color: #2b363c;
   color: white;
   position: relative;
 }
+
 .menu__button--active::before {
   content: "";
   width: 0.3rem;
@@ -201,54 +222,65 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   left: 0;
   top: 0;
 }
+
 .menu__icon {
   font-size: 1.5em;
   margin-bottom: 0.25em;
 }
+
 .menu__text {
   font-weight: bold;
   font-size: 0.9em;
 }
+
 .footer {
   display: inline;
 }
+
 .copyright {
   color: silver;
   font-size: 0.8em;
   white-space: nowrap;
 }
-/* Panel-------------------- */
+
+/* ------Panel of Six Images------ */
 .panel {
   background-color: #2b363c;
   width: 35rem;
   padding: 1.6rem;
   font-size: 1.6rem;
 }
+
 .panel__top {
-  /* Flex parent of icon and heading */
+  /* Flex parent of << icon and "Images" heading */
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px dotted cornflowerblue;
 }
+
 .panel__collapse-icon {
   opacity: 0.5;
   padding: 0.25em;
 }
+
 .second-heading {
   font-weight: bold;
   font-size: 2rem;
   padding: 0.25rem;
 }
+
 .panel__images {
   /* Flex parent of imgs */
   padding: 0.5em 0;
   display: flex;
   flex-wrap: wrap;
 }
+
 .panel__img {
   width: 140px;
   height: 140px;
+  /* Maintain aspect ratio, fill space, and crop excess */
   object-fit: cover;
   border-radius: 4px;
   padding: 0.25em;
@@ -256,21 +288,28 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   cursor: pointer;
   animation: fade-in 1s;
 }
+
+/* Choreograph entrance of images */
 .panel__img:nth-child(2) {
   animation: fade-in 1s 0.1s backwards;
 }
+
 .panel__img:nth-child(3) {
   animation: fade-in 1s 0.2s backwards;
 }
+
 .panel__img:nth-child(4) {
   animation: fade-in 1s 0.3s backwards;
 }
+
 .panel__img:nth-child(5) {
   animation: fade-in 1s 0.5s backwards;
 }
+
 .panel__img:hover {
   transform: scale(1.05);
 }
+
 .panel__button {
   width: 140px;
   height: 140px;
@@ -279,6 +318,7 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   background-color: #222;
   animation: fade-in 1s 0.6s backwards;
 }
+
 .panel__button:hover,
 .panel__button:focus {
   transform: scale(1.05);
@@ -292,22 +332,26 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   font-size: 1.5em;
   cursor: pointer;
 }
+
 .panel__upload-icon:hover,
 .panel__upload-icon:focus {
   color: white;
 }
 
-/* Main--------------------- */
+/* ------MAIN------ */
+/* This section contains the infobar and artboard */
 .main {
   font-size: 1.6rem;
   background-color: #edf1f3;
   flex: 1;
 }
+
 .first-heading {
   margin: 0.25em 0 0 0.75em;
   font-size: 1.5em;
   color: cornflowerblue;
 }
+
 .info-bar {
   /* Flex parent of: breadcrumbs (link, icon, name) and Publish button */
   height: 50px;
@@ -319,29 +363,35 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   align-items: center;
   justify-content: space-between;
 }
+
 .breadcrumbs {
   text-transform: uppercase;
   letter-spacing: 0.02em;
   font-weight: bold;
   font-size: 0.95em;
 }
+
 .breadcrumbs__link {
   color: #2b363c;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.4s;
 }
+
 .breadcrumbs__link:hover,
 .breadcrumbs__link:focus {
   color: #111;
   text-decoration: underline;
 }
+
 .breadcrumbs__icon {
   color: #2b363c;
 }
+
 .breadcrumbs__name {
   color: #2b363c;
 }
+
 .button {
   background-color: cornflowerblue;
   font-size: 1em;
@@ -353,33 +403,38 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   cursor: pointer;
   transition: all 0.2s;
 }
+
 .button:hover,
 .button:focus {
   color: white;
   border: 1px solid #2b363c;
 }
 
-/* ARTBOARD --------------------- */
+/* ------ARTBOARD------*/
 .artboard {
   height: calc(100vh - 50px - 55px);
+  /* Flex parent of canvas and tools */
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -10%;
 }
+
 .canvas {
-  /* Positioning parent of circles and images  */
+  /* Positioning parent of white dots and images  */
   height: 60vh;
   width: 50vw;
   position: relative;
   border: 1px solid silver;
 }
+
 .canvas__bg-img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   opacity: 0.15;
 }
+
 .canvas__fg-img {
   height: 75%;
   width: 75%;
@@ -393,6 +448,7 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   cursor: grab;
   animation: shrink-to-fit 1s 0.5s backwards;
 }
+
 .canvas__circle {
   background-color: white;
   height: 15px;
@@ -401,26 +457,31 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   position: absolute;
   animation: fade-in 1s 1s backwards;
 }
+
 .canvas__circle:nth-of-type(1) {
   top: 11.5%;
   left: 10.5%;
   cursor: nw-resize;
 }
+
 .canvas__circle:nth-of-type(2) {
   top: 11.5%;
   right: 10.5%;
   cursor: ne-resize;
 }
+
 .canvas__circle:nth-of-type(3) {
   bottom: 11.5%;
   right: 10.5%;
   cursor: se-resize;
 }
+
 .canvas__circle:nth-of-type(4) {
   bottom: 11.5%;
   left: 10.5%;
   cursor: sw-resize;
 }
+
 .tools {
   /* Flex parent of tools */
   height: 60vh;
@@ -430,6 +491,7 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   row-gap: 0.25em;
   animation: fade-in-from-right 0.5s;
 }
+
 .tool {
   background-color: #ddd;
   height: 3em;
@@ -440,21 +502,24 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
   cursor: pointer;
   transition: all 0.4s;
 }
+
 .tool:hover,
 .tool:focus {
   color: #eee;
   background-color: #2b3663;
   cursor: pointer;
 }
+
 .tool--active {
   background-color: #2b3663;
   color: white;
 }
+
 .tool:last-child {
   margin-top: auto;
 }
 
-/* MEDIA QUERIES */
+/* ------MEDIA QUERIES------ */
 @media (max-width: 980px) {
   .panel {
     display: none;
@@ -499,6 +564,7 @@ FLEX PARENT is .app__container. Children are sidebar, panel, and main. Sidebar a
     width: 80vw;
   }
 }
+
 @media (max-width: 580px) {
   .dd-toggle:nth-of-type(1),
   .dd-toggle:nth-of-type(2),
